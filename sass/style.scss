@@ -14,7 +14,6 @@ html{
     scroll-behavior: smooth;
 }
 body{
-    font-family: 'Dancing Script', cursive;
     font-family: 'Open Sans', sans-serif;
     font-size: 1.6rem;
 }
@@ -35,7 +34,8 @@ body{
         border-radius: 8px;
     }
     &:hover{
-        .burger-btn__bars::after,.burger-btn__bars::after{
+        .burger-btn__bars::after,
+        .burger-btn__bars::before{
             width: 100%;
         }
     }
@@ -46,7 +46,9 @@ body{
         height: 30px;
     }
 
-    &__bars,&__bars::after,&__bars::before{
+    &__bars,
+    &__bars::after,
+    &__bars::before{
         @include burgerBtn;
     }
 
@@ -60,6 +62,79 @@ body{
         &::before{
             top: 27px;
             width: 30%;
+        }
+    }
+}
+// headeer
+.header{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2em;
+    height: 75vh;
+    text-align: center;
+    color: $pure-white;
+    @include heroImages('../img/palm-gd16b57e3f_640.jpg');
+    background-attachment: scroll;
+
+    &__heading{
+        font-family: 'Dancing Script', cursive;
+        font-size: 4.8rem;
+        font-weight: 300;
+    }
+
+    &__text{
+        font-size: 1.4rem;
+    }
+
+    &__btn{
+        margin-top: 2em;
+        padding: 0.8em 1.6rem;
+        font-size: 1.4rem;
+        background: $pure-white;
+        border: none;
+        border-radius: 8px;
+        color: $dark;
+        text-decoration: none;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        &::before{
+            background-color: $light-white;
+        }
+    }
+}
+
+// MEDIA
+@media(min-width: 768px) {
+    .white-block{
+        height: 50px;
+        width: 45%;
+    }
+    .header{
+        &__heading {
+            font-size: 6.6rem
+        }
+        &__text{
+            font-size: 2.2rem;
+        }
+        &btn{
+            font-size: 1.6rem;
+        }
+    }
+}
+@media(min-width: 992px){
+    .burger-btn{
+        top: 50px;
+        right: 50px;
+    }
+    .header{
+        background-image: $blue-gradient,url(../img/palm-g56daa7b18_1920.jpg);
+        
+        &__heading{
+            font-size: 10rem;
         }
     }
 }
